@@ -2,9 +2,37 @@
 Changelog
 =========
 
-* :bug:`898` Treat paths that begin with tilde "~" as absolute paths instead of
-  relative. Thanks to Alex Plugaru for the patch and Dan Craig for the
-  suggestion.
+* :release:`1.9.1 <2014-08-06>`
+* :release:`1.8.5 <2014-08-06>`
+* :release:`1.7.5 <2014-08-06>`
+* :bug:`1165` Prevent infinite loop condition when a gateway host is enabled &
+  the same host is in the regular target host list. Thanks to ``@CzBiX`` for
+  catch & patch.
+* :bug:`1147` Use ``stat`` instead of ``lstat`` when testing directory-ness in
+  the SFTP module. This allows recursive downloads to avoid recursing into
+  symlinks unexpectedly. Thanks to Igor Kalnitsky for the patch.
+* :bug:`1146` Fix a bug where `~fabric.contrib.files.upload_template` failed to
+  honor ``lcd`` when ``mirror_local_mode`` is ``True``. Thanks to Laszlo Marai
+  for catch & patch.
+* :bug:`1134` Skip bad hosts when the tasks are executed in parallel. Thanks to
+  Igor Maravić ``@i-maravic``.
+* :bug:`852` Fix to respect ``template_dir`` for non Jinja2 templates in
+  `~fabric.contrib.files.upload_template`. Thanks to Adam Kowalski for the
+  patch and Alex Plugaru for the initial test case.
+* :bug:`1096` Encode Unicode text appropriately for its target stream object to
+  avoid issues on non-ASCII systems. Thanks to Toru Uetani for the original
+  patch.
+* :bug:`1059` Update IPv6 support to work with link-local address formats.
+  Fix courtesy of ``@obormot``.
+* :bug:`1026` Fix a typo preventing quiet operation of
+  `~fabric.contrib.files.is_link`. Caught by ``@dongweiming``.
+* :bug:`600` Clear out connection caches in full when prepping
+  parallel-execution subprocesses. This avoids corner cases causing
+  hangs/freezes due to client/socket reuse. Thanks to Ruslan Lutsenko for the
+  initial report and Romain Chossart for the suggested fix.
+* :bug:`1167` Add Jinja to ``test_requires`` in ``setup.py`` for the couple of
+  newish tests that now require it. Thanks to Kubilay Kocak for the catch.
+* :release:`1.9.0 <2014-06-08>`
 * :feature:`1078` Add ``.command`` and ``.real_command`` attributes to
   ``local`` return value.  Thanks to Alexander Teves (``@alexanderteves``) and
   Konrad Hałas (``@konradhalas``).
@@ -15,6 +43,11 @@ Changelog
   Lejon.
 * :support:`1106` Fix a misleading/ambiguous example snippet in the ``fab``
   usage docs to be clearer. Thanks to ``@zed``.
+* :release:`1.8.4 <2014-06-08>`
+* :release:`1.7.4 <2014-06-08>`
+* :bug:`898` Treat paths that begin with tilde "~" as absolute paths instead of
+  relative. Thanks to Alex Plugaru for the patch and Dan Craig for the
+  suggestion.
 * :support:`1105 backported` Enhance ``setup.py`` to allow Paramiko 1.13+ under
   Python 2.6+. Thanks to to ``@Arfrever`` for catch & patch.
 * :release:`1.8.3 <2014-03-21>`
